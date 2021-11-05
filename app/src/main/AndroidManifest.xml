@@ -33,6 +33,11 @@
         <activity
             android:name=".CreateGeofence"
             android:label="@string/title_activity_create_geofence" />
+
+        <!-- <activity
+            android:name=".teacher.SetExpirationActivity" /> -->
+        <activity
+            android:name=".teacher.TeacherActivity"/>
         <activity
             android:name=".ui.login.LoginActivity"
             android:parentActivityName=".ui.login.LoginActivity">
