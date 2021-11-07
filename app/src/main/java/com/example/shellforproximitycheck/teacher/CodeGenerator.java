@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class CodeGenerator extends FragmentActivity {
-    static String code = "";
+    public static String code = "ABCDE";
     static final int digits = 5;
     //static ArrayList <String> codeList = new ArrayList<String>();
 

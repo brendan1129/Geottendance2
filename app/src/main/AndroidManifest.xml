@@ -38,6 +38,13 @@
             android:name=".teacher.SetExpirationActivity" /> -->
         <activity
             android:name=".teacher.TeacherActivity"/>
+
+        <activity
+            android:name=".student.CheckInSuccessActivity"/>
+
+        <activity
+            android:name=".student.StudentCodeActivity"/>
+
         <activity
             android:name=".ui.login.LoginActivity"
             android:parentActivityName=".ui.login.LoginActivity">

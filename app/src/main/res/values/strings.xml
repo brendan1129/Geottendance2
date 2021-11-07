@@ -15,4 +15,6 @@
     <string name="generate_btn">Generate</string>
     <string name ="yourCode">Your code is</string>
     <string name="apply_btn">Apply</string>
+    <!-- Strings for student view -->
+    <string name="enter_code">Enter your class code</string>
 </resources>

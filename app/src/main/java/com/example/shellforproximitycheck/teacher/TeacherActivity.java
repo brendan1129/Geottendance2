@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.shellforproximitycheck.R;
+import com.example.shellforproximitycheck.student.StudentCodeActivity;
 
 public class TeacherActivity extends AppCompatActivity {
     private boolean codeGenerated = false;
@@ -28,6 +29,7 @@ public class TeacherActivity extends AppCompatActivity {
         final TextView codeText = findViewById(R.id.generated_code);
         final TextView yourText = findViewById(R.id.yourCode);
         final Button generateButton = findViewById(R.id.generate_btn);
+        final Button testButton = findViewById(R.id.test_teacher);
 
         yourText.setText(codeAppears);
         codeText.setText(codeString);
@@ -56,6 +58,15 @@ public class TeacherActivity extends AppCompatActivity {
 
         });
 
+        testButton.setOnClickListener(v ->
+            changeActivity()
+        );
+
+    }
+
+    private void changeActivity(){
+        Intent intent = new Intent(this, StudentCodeActivity.class);
+        startActivity(intent);
     }
 
     /*
@@ -91,11 +102,8 @@ public class TeacherActivity extends AppCompatActivity {
         tv.setText(myString);
         tv.setVisibility(View.VISIBLE);
     }
+    */
 
-    private void changeActivity(){
-        Intent intent = new Intent(this, SetExpirationActivity.class);
-        startActivity(intent);
-    } */
 
 
 }

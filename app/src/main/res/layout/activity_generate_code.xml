@@ -8,6 +8,17 @@
     android:addStatesFromChildren="false"
     tools:context=".teacher.TeacherActivity">
 
+    <Button
+        android:id="@+id/test_teacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generate_btn" />
+
     <TextView
         android:id="@+id/generated_code"
         android:layout_width="129dp"
@@ -26,13 +37,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/generate_btn"
+        android:visibility="visible"
         app:backgroundTint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.578" />
+        app:layout_constraintVertical_bias="0.578"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/yourCode"
