@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.shellforproximitycheck.R;
 import com.example.shellforproximitycheck.teacher.CodeGenerator;
-import com.example.shellforproximitycheck.teacher.TeacherActivity;
+import com.example.shellforproximitycheck.teacher.GenerateCodeActivity;
 
 public class StudentCodeActivity extends AppCompatActivity {
     final String incorrectLength = "The code must be 5-digits long!";
@@ -61,7 +61,7 @@ public class StudentCodeActivity extends AppCompatActivity {
     }
 
     private void changeActivityTest(){
-        Intent intent = new Intent(this, TeacherActivity.class);
+        Intent intent = new Intent(this, GenerateCodeActivity.class);
         startActivity(intent);
     }
 

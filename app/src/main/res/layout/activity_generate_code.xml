@@ -2,11 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:addStatesFromChildren="false"
-    tools:context=".teacher.TeacherActivity">
+    tools:context=".teacher.GenerateCodeActivity">
 
     <Button
         android:id="@+id/test_teacher"
@@ -62,5 +60,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.367" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/teacherNavView"
+        android:layout_width="491dp"
+        android:layout_height="58dp"
+        android:background="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generate_btn"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/teacher_nav_menu" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

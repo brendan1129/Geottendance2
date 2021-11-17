@@ -8,9 +8,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class CodeGenerator extends FragmentActivity {
-    public static String code = "ABCDE";
-    static final int digits = 5;
+public class CodeGenerator  {
+    public static String code = "";
+    static final int LENGTH = 5;
     //static ArrayList <String> codeList = new ArrayList<String>();
 
 
@@ -20,7 +20,7 @@ public class CodeGenerator extends FragmentActivity {
         StringBuilder c = new StringBuilder();
 
         int i = 0;
-        while (i < digits){
+        while (i < LENGTH){
             int numOrDigit = rg.nextInt(2);
 
             if (numOrDigit == 0){

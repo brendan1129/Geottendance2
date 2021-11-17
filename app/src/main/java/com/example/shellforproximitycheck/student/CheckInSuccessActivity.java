@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.shellforproximitycheck.R;
-import com.example.shellforproximitycheck.teacher.TeacherActivity;
 
 public class CheckInSuccessActivity extends AppCompatActivity {
     final String success = "You've successfully checked into class!";
