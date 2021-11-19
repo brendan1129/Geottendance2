@@ -47,8 +47,8 @@ public class GeottendanceDatabaseTest {
         databaseDAO.insertStudent(s1);
         databaseDAO.insertTeacher(t1);
         //LiveData<List<Student>> listStudents = databaseDAO.getAllStudents();
-        List<Student> listStudents = databaseDAO.getAllStudents();
-        List<Teacher> teacherList = databaseDAO.getAllTeachers();
+        LiveData<List<Student>> listStudents = databaseDAO.getAllStudents();
+        LiveData<List<Teacher>> teacherList = databaseDAO.getAllTeachers();
         databaseDAO.deleteStudent(s1);
         databaseDAO.deleteTeacher(t1);
         listStudents = databaseDAO.getAllStudents();

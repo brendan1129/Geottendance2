@@ -8,11 +8,11 @@ import java.util.List;
 
 public class DatabaseRepository {
     private DatabaseDAO mDatabaseDAO;
-   /* private LiveData<List<Student>> mAllStudents;
-    private LiveData<List<Teacher>> mAllTeachers;*/
+    private LiveData<List<Student>> mAllStudents;
+    private LiveData<List<Teacher>> mAllTeachers;
 
-    private List<Student> mAllStudents;
-    private List<Teacher> mAllTeachers;
+    /*private List<Student> mAllStudents;
+    private List<Teacher> mAllTeachers;*/
 
     DatabaseRepository(Application application) {
         GeottendanceDatabase db = GeottendanceDatabase.getDatabase(application);
@@ -21,14 +21,14 @@ public class DatabaseRepository {
         mAllTeachers = mDatabaseDAO.getAllTeachers();
     }
 
-    /*LiveData<List<Student>> getAllStudents() {
+    LiveData<List<Student>> getAllStudents() {
         return mAllStudents;
     }
 
     LiveData<List<Teacher>> getAllTeachers() {
         return mAllTeachers;
-    }*/
-
+    }
+    /*
     List<Student> getAllStudents() {
         return mAllStudents;
     }
@@ -36,7 +36,7 @@ public class DatabaseRepository {
     List<Teacher> getAllTeachers() {
         return mAllTeachers;
     }
-
+    */
     void insertStudent(Student student) {
         GeottendanceDatabase.databaseWriteExecutor.execute(() -> {
             mDatabaseDAO.insertStudent(student);
