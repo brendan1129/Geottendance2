@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/startPopup"
+    android:layout_width="300dp"
+    android:layout_height="270dp"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/beginText"
+        android:layout_width="199dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="196dp"
+        android:gravity="center"
+        android:text="@string/begin_session"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/beginBtn"
+        android:layout_width="128dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginBottom="90dp"
+        android:backgroundTint="#4191CF"
+        android:gravity="center"
+        android:text="@string/begin"
+        app:backgroundTint="#858A8A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/beginText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/closeBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:text="@string/x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

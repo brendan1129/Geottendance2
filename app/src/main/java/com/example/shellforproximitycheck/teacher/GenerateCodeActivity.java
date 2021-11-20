@@ -16,27 +16,26 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class GenerateCodeActivity extends AppCompatActivity {
     private boolean codeGenerated;
 
-    private final String codeAppears = "Press Generate to create your code";
-    private final String yourCodeIs = "Your code is";
-    private final String codeString = "_ _ _ _ _";
-    private final String end = "End";
-    private final String generate = "Generate";
+    //private final String codeAppears = "Press Generate to create your code";
+    //private final String yourCodeIs = "Your code is";
+    //private final String codeString = "_ _ _ _ _";
+    //private final String end = "End";
+    //private final String generate = "Generate";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generate_code);
 
-        final TextView codeText = findViewById(R.id.generated_code);
-        final TextView yourText = findViewById(R.id.yourCode);
+        //final TextView codeText = findViewById(R.id.generated_code);
+        //final TextView yourText = findViewById(R.id.yourCode);
         final Button generateButton = findViewById(R.id.generate_btn);
         final Button testButton = findViewById(R.id.test_teacher);
         BottomNavigationView navView = (BottomNavigationView)findViewById(R.id.teacherNavView);
 
-        yourText.setText(codeAppears);
-
-
-        if (CodeGenerator.code.equals("")) {
+        CodeGenerator.resetCode();
+        codeGenerated = false;
+        /*if (CodeGenerator.code.equals("")) {
             codeText.setText(codeString);
             yourText.setText(codeAppears);
             generateButton.setText(generate);
@@ -47,7 +46,7 @@ public class GenerateCodeActivity extends AppCompatActivity {
             yourText.setText(yourCodeIs);
             generateButton.setText(end);
             codeGenerated = true;
-        }
+        }*/
 
         //AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 //R.id.generateCode, R.id.createGeofence)
@@ -56,40 +55,40 @@ public class GenerateCodeActivity extends AppCompatActivity {
         //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         //NavigationUI.setupWithNavController(navView, navController);
 
-        navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.navigation_generate:
-                        break;
-                    case R.id.navigation_geofence:
-                        Intent a = new Intent(GenerateCodeActivity.this, CreateGeofenceActivity.class);
-                        startActivity(a);
-                        break;
-                }
-                return false;
+        navView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.navigation_generate:
+                    break;
+                case R.id.navigation_geofence:
+                    Intent a = new Intent(GenerateCodeActivity.this, CreateGeofenceActivity.class);
+                    startActivity(a);
+                    break;
             }
+            return false;
         });
 
         generateButton.setOnClickListener(v -> {
+            CodeGenerator.generateCode();
             //Generate 5-digit Code
-            if (!codeGenerated){
+            /*if (!codeGenerated){
                 CodeGenerator.generateCode();
-                codeText.setText(CodeGenerator.code);
+                //codeText.setText(CodeGenerator.code);
                 //yourText.setVisibility(View.VISIBLE);
-                yourText.setText(yourCodeIs);
-                generateButton.setText(end);
-            }
+                //yourText.setText(yourCodeIs);
+                //generateButton.setText(end);
+            }*/
             //Reset the 5-digit Code
-            else {
+            /*else {
                 CodeGenerator.resetCode();
-                codeText.setText(codeString);
+                //codeText.setText(codeString);
                 //yourText.setVisibility(View.INVISIBLE);
-                yourText.setText(codeAppears);
-                generateButton.setText(generate);
-            }
+                //yourText.setText(codeAppears);
+                //generateButton.setText(generate);
+            }*/
             codeGenerated = !codeGenerated;
 
+            Intent a = new Intent(GenerateCodeActivity.this, ClassSessionActivity.class);
+            startActivity(a);
         });
 
         testButton.setOnClickListener(v ->

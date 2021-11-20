@@ -1,3 +1,4 @@
+
 package com.example.shellforproximitycheck.data.model;
 
 import android.content.Intent;
@@ -13,7 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 //import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModel;
 import androidx.room.Database;
 import androidx.room.Room;
 
@@ -46,36 +47,32 @@ public class LoginActivity extends AppCompatActivity {
         adapter.add("Student");
         adapter.add("Teacher");
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*if (username.getText() == null || password.getText() == null || !username.toString().endsWith("@sju.edu")) {
-                    Toast.makeText(getApplicationContext(), invalidEntry, Toast.LENGTH_SHORT).show();
-                }
-                else {*/
-                DatabaseDAO dbDAO = db.getDatabaseDAO();
-                    switch(spinner.getSelectedItem().toString()) {
-                        case "Student":
-                                //Student s1 = new Student(username.hashCode(), "Johnny Student", username.getText().toString(), password.getText().toString() );
-                                //dbDAO.insertTeacher(s1);
-                                Intent intent1 = new Intent(LoginActivity.this, StudentCodeActivity.class);
-                                startActivity(intent1);
-                                Toast.makeText(getApplicationContext(), "Greetings!", Toast.LENGTH_SHORT).show();
-                        break;
-                        case "Teacher":
-                                //Teacher t1 = new Teacher(username.hashCode(), "Jimmy Teacher", username.getText().toString(), password.getText().toString());
-                                //dbDAO.insertTeacher(t1);
-                                Intent intent2 = new Intent(LoginActivity.this, CreateGeofenceActivity.class);
-                                startActivity(intent2);
-                                Toast.makeText(getApplicationContext(), "Hello!", Toast.LENGTH_SHORT).show();
+        login.setEnabled(true);
+        login.setOnClickListener(v -> {
+            /*if (username.getText() == null || password.getText() == null || !username.toString().endsWith("@sju.edu")) {
+                Toast.makeText(getApplicationContext(), invalidEntry, Toast.LENGTH_SHORT).show();
+            }
+            else {*/
+            DatabaseDAO dbDAO = db.getDatabaseDAO();
+            switch(spinner.getSelectedItem().toString()) {
+                case "Student":
+                    //Student s1 = new Student(username.hashCode(), "Johnny Student", username.getText().toString(), password.getText().toString() );
+                    //dbDAO.insertTeacher(s1);
+                    Intent intent1 = new Intent(LoginActivity.this, StudentCodeActivity.class);
+                    startActivity(intent1);
+                    Toast.makeText(getApplicationContext(), "Greetings!", Toast.LENGTH_SHORT).show();
+                    break;
+                case "Teacher":
+                    //Teacher t1 = new Teacher(username.hashCode(), "Jimmy Teacher", username.getText().toString(), password.getText().toString());
+                    //dbDAO.insertTeacher(t1);
+                    Intent intent2 = new Intent(LoginActivity.this, CreateGeofenceActivity.class);
+                    startActivity(intent2);
+                    Toast.makeText(getApplicationContext(), "Hello!", Toast.LENGTH_SHORT).show();
 
-                        break;
-                    }
-                }
-
+                    break;
+            }
         });
 
 
     }
 }
-

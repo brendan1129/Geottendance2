@@ -1,6 +1,7 @@
 package com.example.shellforproximitycheck.teacher;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,6 +10,10 @@ import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -40,6 +45,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class CreateGeofenceActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
 
+    Dialog popup;
+
     private static final String TAG = "CreateGeofenceActivity";
     private GoogleMap mMap;
     private GeofencingClient geofencingClient;
@@ -50,6 +57,8 @@ public class CreateGeofenceActivity extends FragmentActivity implements OnMapRea
 
     private final float GEOFENCE_RADIUS = 10; //meters
     private final String GEOFENCE_ID = "ABCDE";
+
+    boolean beginSession = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +84,10 @@ public class CreateGeofenceActivity extends FragmentActivity implements OnMapRea
         //Geofence Helper
         geofenceHelper = new GeofenceHelper(this);
 
+        //Popup to confirm
+        popup = new Dialog(this);
+
+        beginSession = false;
 
 
         navigationView.setOnNavigationItemSelectedListener(item -> {
@@ -223,10 +236,7 @@ public class CreateGeofenceActivity extends FragmentActivity implements OnMapRea
     }
 
     private void handleMapLongClick(LatLng latLng){
-        mMap.clear();
-        addMarker(latLng);
-        addCircle(latLng, GEOFENCE_RADIUS);
-        addGeofence(latLng, GEOFENCE_RADIUS);
+        showDialog(latLng);
     }
 
     public void addGeofence(LatLng latLng, float radius) {
@@ -276,6 +286,33 @@ public class CreateGeofenceActivity extends FragmentActivity implements OnMapRea
         mMap.addCircle(circleOptions);
     }
 
+    public void showDialog(LatLng latLng){
+        TextView textBegin;
+        Button btnConfirm;
+        TextView btnClose;
+        popup.setContentView(R.layout.popup_start_geofence);
+        textBegin = (TextView) popup.findViewById(R.id.beginText);
+        btnClose = (TextView) popup.findViewById(R.id.closeBtn);
+        btnConfirm = (Button) popup.findViewById(R.id.beginBtn);
+
+
+
+        btnConfirm.setOnClickListener(view -> {
+            mMap.clear();
+            addMarker(latLng);
+            addCircle(latLng, GEOFENCE_RADIUS);
+            addGeofence(latLng, GEOFENCE_RADIUS);
+            beginSession = true;
+            Intent a = new Intent(CreateGeofenceActivity.this, GenerateCodeActivity.class);
+            startActivity(a);
+        });
+
+        btnClose.setOnClickListener(view -> {
+            beginSession = false;
+            popup.dismiss();
+        });
+        popup.show();
+    }
 
     /*@Override
     public void onPostCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
