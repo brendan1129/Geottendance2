@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Student {
-    @PrimaryKey
+    @PrimaryKey (autoGenerate = true)
     public int Student_ID;
     @NonNull
     public String SName;

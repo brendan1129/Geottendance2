@@ -10,6 +10,10 @@ public class DatabaseRepository {
     private DatabaseDAO mDatabaseDAO;
     private LiveData<List<Student>> mAllStudents;
     private LiveData<List<Teacher>> mAllTeachers;
+    private LiveData<Student> mStudentID;
+    private LiveData<Teacher> mTeacherID;
+    public int sid;
+    public int tid;
 
     /*private List<Student> mAllStudents;
     private List<Teacher> mAllTeachers;*/
@@ -19,6 +23,8 @@ public class DatabaseRepository {
         mDatabaseDAO = db.getDatabaseDAO();
         mAllStudents = mDatabaseDAO.getAllStudents();
         mAllTeachers = mDatabaseDAO.getAllTeachers();
+        mStudentID = mDatabaseDAO.getbySID(sid);
+        mTeacherID = mDatabaseDAO.getbyTID(tid);
     }
 
     LiveData<List<Student>> getAllStudents() {
@@ -27,6 +33,13 @@ public class DatabaseRepository {
 
     LiveData<List<Teacher>> getAllTeachers() {
         return mAllTeachers;
+    }
+    LiveData<Student> getbySID(int sid) {
+        return mStudentID;
+    }
+
+    LiveData<Teacher> getbyTID(int tid) {
+        return mTeacherID;
     }
     /*
     List<Student> getAllStudents() {

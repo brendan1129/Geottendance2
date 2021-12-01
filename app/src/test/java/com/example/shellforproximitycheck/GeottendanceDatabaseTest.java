@@ -11,7 +11,7 @@ import android.content.Context;
 import androidx.lifecycle.LiveData;
 import androidx.room.Room;
 import androidx.test.core.app.ApplicationProvider;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+//import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.example.shellforproximitycheck.data.model.DatabaseDAO;
 import com.example.shellforproximitycheck.data.model.GeottendanceDatabase;
@@ -24,7 +24,7 @@ import org.junit.runners.JUnit4;
 import java.io.IOException;
 import java.util.List;
 
-@RunWith(AndroidJUnit4.class)
+/*@RunWith(AndroidJUnit4.class)
 public class GeottendanceDatabaseTest {
     private DatabaseDAO databaseDAO;
     private GeottendanceDatabase db;
@@ -55,4 +55,4 @@ public class GeottendanceDatabaseTest {
         teacherList = databaseDAO.getAllTeachers();
     }
 
-}
+}*/

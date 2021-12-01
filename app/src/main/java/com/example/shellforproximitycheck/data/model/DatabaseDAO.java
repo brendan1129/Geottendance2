@@ -22,11 +22,11 @@ public interface DatabaseDAO {
 
     //Get the student from Student_ID
     @Query("SELECT * FROM Student WHERE Student_ID = :sID")
-    Student getbySID(int sID);
+    LiveData<Student> getbySID(int sID);
 
     //Get the teacher from Teacher_ID
     @Query("SELECT * FROM Teacher WHERE Teacher_ID = :tID")
-    Teacher getbyTID(int tID);
+    LiveData<Teacher> getbyTID(int tID);
 
     //Insert into the student table
     @Insert

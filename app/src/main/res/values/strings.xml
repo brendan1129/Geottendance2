@@ -24,7 +24,7 @@
     <string name="your_session_code_is"> Your session code is</string>
     <string name="begin_session"> Begin session?</string>
     <string name="begin">Begin</string>
-    <string name="x" >X</string>
+    <string name="x">X</string>
     <string-array name="user_array">
         <item>Student</item>
         <item>Instructor</item>

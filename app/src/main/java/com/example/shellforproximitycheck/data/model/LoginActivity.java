@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText password = (EditText) findViewById(R.id.password);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
         final Button login = (Button)findViewById(R.id.login);
+        final Button registration = (Button)findViewById(R.id.registration);
         //viewModel = new ViewModelProvider(this,new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(ViewModel.class);
         GeottendanceDatabase db = Room.databaseBuilder(getApplicationContext(), GeottendanceDatabase.class, "Geottendance-Database").allowMainThreadQueries().build();
         ArrayAdapter<String> adapter = new  ArrayAdapter<String>(this,
@@ -71,6 +72,11 @@ public class LoginActivity extends AppCompatActivity {
 
                     break;
             }
+        });
+
+        registration.setOnClickListener(v -> {
+            Intent intent3 = new Intent(LoginActivity.this, RegistrationActivity.class);
+            startActivity(intent3);
         });
 
 
