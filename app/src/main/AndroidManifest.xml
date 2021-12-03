@@ -34,6 +34,8 @@
             android:name=".data.model.RegistrationActivity"
             android:exported="false" />
 
+
+
         <receiver
             android:name=".teacher.GeofenceBroadcastReceiver"
             android:enabled="true"
@@ -60,13 +62,14 @@
         -->
         <activity android:name=".teacher.ClassSessionActivity" />
         <activity android:name=".student.CheckInSuccessActivity" />
-        <activity android:name=".student.StudentCodeActivity" />
+        <activity
+            android:name=".student.StudentCodeActivity" />
         <activity
             android:name=".teacher.CreateGeofenceActivity"
             android:label="@string/title_activity_create_geofence" />
         <activity
             android:name=".teacher.GenerateCodeActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".data.model.LoginActivity"
             android:exported="true">
