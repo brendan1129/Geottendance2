@@ -58,10 +58,13 @@ public class CreateGeofenceActivity extends FragmentActivity implements OnMapRea
     private final float GEOFENCE_RADIUS = 10; //meters
     private final String GEOFENCE_ID = "ABCDE";
 
+    public static LatLng geofenceLatLng = new LatLng(0, 0);
+
     boolean beginSession = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //mMap.getCameraPosition().target.latitude;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_geofence);
 
@@ -303,6 +306,7 @@ public class CreateGeofenceActivity extends FragmentActivity implements OnMapRea
             addCircle(latLng, GEOFENCE_RADIUS);
             addGeofence(latLng, GEOFENCE_RADIUS);
             beginSession = true;
+            geofenceLatLng = latLng;
             Intent a = new Intent(CreateGeofenceActivity.this, GenerateCodeActivity.class);
             startActivity(a);
         });
