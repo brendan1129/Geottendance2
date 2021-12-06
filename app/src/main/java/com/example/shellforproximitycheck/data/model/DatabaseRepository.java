@@ -12,6 +12,8 @@ public class DatabaseRepository {
     private LiveData<List<Teacher>> mAllTeachers;
     private LiveData<Student> mStudentID;
     private LiveData<Teacher> mTeacherID;
+    public String mStudentPassword;
+    public String mTeacherPassword;
     public int sid;
     public int tid;
 
@@ -25,6 +27,9 @@ public class DatabaseRepository {
         mAllTeachers = mDatabaseDAO.getAllTeachers();
         mStudentID = mDatabaseDAO.getbySID(sid);
         mTeacherID = mDatabaseDAO.getbyTID(tid);
+        mStudentPassword = mDatabaseDAO.getbySEmail(mStudentPassword);
+        mTeacherPassword = mDatabaseDAO.getbyTEmail(mTeacherPassword);
+
     }
 
     LiveData<List<Student>> getAllStudents() {
@@ -34,6 +39,7 @@ public class DatabaseRepository {
     LiveData<List<Teacher>> getAllTeachers() {
         return mAllTeachers;
     }
+
     LiveData<Student> getbySID(int sid) {
         return mStudentID;
     }
@@ -41,6 +47,11 @@ public class DatabaseRepository {
     LiveData<Teacher> getbyTID(int tid) {
         return mTeacherID;
     }
+
+    String getbySEmail(String email) { return mStudentPassword; }
+
+    String getbyTEmail(String email) { return mTeacherPassword; }
+
     /*
     List<Student> getAllStudents() {
         return mAllStudents;

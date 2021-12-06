@@ -28,8 +28,6 @@ import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
-    final String invalidEntry = "Please enter a valid username or password.";
-    private ViewModel viewModel;
     @Override
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
@@ -57,19 +55,24 @@ public class LoginActivity extends AppCompatActivity {
             DatabaseDAO dbDAO = db.getDatabaseDAO();
             switch(spinner.getSelectedItem().toString()) {
                 case "Student":
-                    //Student s1 = new Student(username.hashCode(), "Johnny Student", username.getText().toString(), password.getText().toString() );
-                    //dbDAO.insertTeacher(s1);
-                    Intent intent1 = new Intent(LoginActivity.this, StudentCodeActivity.class);
-                    startActivity(intent1);
-                    Toast.makeText(getApplicationContext(), "Greetings!", Toast.LENGTH_SHORT).show();
+                    if( dbDAO.getbySEmail(username.getText().toString()).equals(password.getText().toString()) ){
+                        Intent intent1 = new Intent(LoginActivity.this, StudentCodeActivity.class);
+                        startActivity(intent1);
+                        Toast.makeText(getApplicationContext(), "Greetings!", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Invalid email/password", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case "Teacher":
-                    //Teacher t1 = new Teacher(username.hashCode(), "Jimmy Teacher", username.getText().toString(), password.getText().toString());
-                    //dbDAO.insertTeacher(t1);
-                    Intent intent2 = new Intent(LoginActivity.this, CreateGeofenceActivity.class);
-                    startActivity(intent2);
-                    Toast.makeText(getApplicationContext(), "Hello!", Toast.LENGTH_SHORT).show();
-
+                    if( dbDAO.getbyTEmail(username.getText().toString()).equals(password.getText().toString()) ) {
+                        Intent intent2 = new Intent(LoginActivity.this, CreateGeofenceActivity.class);
+                        startActivity(intent2);
+                        Toast.makeText(getApplicationContext(), "Hello!", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Invalid email/password", Toast.LENGTH_SHORT).show();
+                    }
                     break;
             }
         });

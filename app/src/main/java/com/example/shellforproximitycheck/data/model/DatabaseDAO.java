@@ -28,6 +28,14 @@ public interface DatabaseDAO {
     @Query("SELECT * FROM Teacher WHERE Teacher_ID = :tID")
     LiveData<Teacher> getbyTID(int tID);
 
+    @Query("SELECT Spassword FROM Student WHERE SUserName = :sEmail")
+    String getbySEmail(String sEmail);
+
+    @Query("SELECT Spassword FROM Student WHERE SUserName = :sEmail")
+    String getPbySEmail(String sEmail);
+
+    @Query("SELECT Tpassword FROM Teacher WHERE TUserName = :tEmail")
+    String getbyTEmail(String tEmail);
     //Insert into the student table
     @Insert
     void insertStudent(Student student);
