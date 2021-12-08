@@ -65,10 +65,10 @@ public class StudentCodeActivity extends AppCompatActivity {
                         lat, lng, results);
                 if (results[0] <= 10){
                     Log.d(TAG, "Within range: " + results[0]);
-                    Toast.makeText(getApplicationContext(), "You are in range. \nDistance from geofence: " + results[0], Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "You are in range. \nDistance from geofence: " + results[0], Toast.LENGTH_LONG).show();
                 } else {
                     Log.d(TAG, "Not in range: " + results[0]);
-                    Toast.makeText(getApplicationContext(), "You are not within range. \nDistance from geofence: " + results[0], Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "You are not within range. \nDistance from geofence: " + results[0], Toast.LENGTH_LONG).show();
                 }
             }
         }
