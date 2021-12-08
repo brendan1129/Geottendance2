@@ -59,8 +59,14 @@ public class StudentCodeActivity extends AppCompatActivity {
             for (Location location : locationResult.getLocations()){
                 Log.d(TAG, "onLocationResult: " + location.toString());
                 lat = location.getLatitude();
-                lat = location.getLatitude();
+                lng = location.getLongitude();
                 float [] results = new float[3];
+                //CreateGeofenceActivity.geofenceLatLng.latitude
+                //CreateGeofenceActivity.geofenceLatLng.longitude
+                //LAT: 39.9904608
+                //LONG:-75.2513041
+                //LAT: 39.9952056
+                //LONG: -75.375474
                 Location.distanceBetween(CreateGeofenceActivity.geofenceLatLng.latitude, CreateGeofenceActivity.geofenceLatLng.longitude,
                         lat, lng, results);
                 if (results[0] <= 10){
