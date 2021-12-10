@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -31,11 +32,17 @@ public interface DatabaseDAO {
     @Query("SELECT Spassword FROM Student WHERE SUserName = :sEmail")
     String getbySEmail(String sEmail);
 
+    @Query("SELECT SName FROM Student WHERE SUserName = :sID")
+    String getNbySEmail(int sID);
+
     @Query("SELECT Spassword FROM Student WHERE SUserName = :sEmail")
     String getPbySEmail(String sEmail);
 
     @Query("SELECT Tpassword FROM Teacher WHERE TUserName = :tEmail")
     String getbyTEmail(String tEmail);
+
+    @Query("UPDATE Student SET isAttending = :checkedIn WHERE Student_ID = :sID")
+    String updateIsAttending(int sID, boolean checkedIn);
     //Insert into the student table
     @Insert
     void insertStudent(Student student);

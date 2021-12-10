@@ -249,7 +249,9 @@ public class StudentCodeActivity extends AppCompatActivity {
     }
 
     private void changeActivitySuccess(){
+        int StudentID = getIntent().getIntExtra("Student", 0); // Passing along StudentID to CheckInSuccess
         Intent intent = new Intent(this, CheckInSuccessActivity.class);
+        intent.putExtra("Student", StudentID);
         startActivity(intent);
     }
 

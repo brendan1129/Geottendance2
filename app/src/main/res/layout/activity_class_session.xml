@@ -51,4 +51,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCode"
         app:layout_constraintVertical_bias="1.0" />
+
+    <ListView
+        android:id="@+id/ListView"
+        android:layout_width="410dp"
+        android:layout_height="384dp"
+        app:layout_constraintBottom_toTopOf="@+id/endSessionBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCode" />
 </androidx.constraintlayout.widget.ConstraintLayout>

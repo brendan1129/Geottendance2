@@ -17,6 +17,8 @@ public class RegistrationActivity extends AppCompatActivity {
     private Student s;
     private Teacher t;
     String sName, sEmail, sPass, tName, tEmail, tPass;
+    public static int currentSID; // Can be used in place of "putExtra" methods as passing along info this way seems unstable
+    // Use this both to update ClassSession list and to check in specific students on StudentCodeActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,9 @@ public class RegistrationActivity extends AppCompatActivity {
                     sEmail = email.getText().toString();
                     sPass = password.getText().toString();
                     s = new Student(0, sName, sEmail, sPass);
+                    //currentSID = s.Student_ID;
                     dbDAO.insertStudent(s);
+                    i.putExtra("Student", s.Student_ID); // s.Student_ID passed with key "Student" from here to CheckInSuccessActivity
                     startActivity(i);
                     break;
                 case "Teacher":
