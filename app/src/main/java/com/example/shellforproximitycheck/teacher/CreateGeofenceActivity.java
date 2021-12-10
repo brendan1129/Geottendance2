@@ -297,6 +297,7 @@ public class CreateGeofenceActivity extends FragmentActivity implements OnMapRea
         textBegin = (TextView) popup.findViewById(R.id.beginText);
         btnClose = (TextView) popup.findViewById(R.id.closeBtn);
         btnConfirm = (Button) popup.findViewById(R.id.beginBtn);
+        geofenceLatLng = latLng;
 
 
 
@@ -306,7 +307,6 @@ public class CreateGeofenceActivity extends FragmentActivity implements OnMapRea
             addCircle(latLng, GEOFENCE_RADIUS);
             addGeofence(latLng, GEOFENCE_RADIUS);
             beginSession = true;
-            geofenceLatLng = latLng;
             Intent a = new Intent(CreateGeofenceActivity.this, GenerateCodeActivity.class);
             startActivity(a);
         });
