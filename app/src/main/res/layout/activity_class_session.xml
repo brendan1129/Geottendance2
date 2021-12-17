@@ -8,12 +8,13 @@
 
     <TextView
         android:id="@+id/sessionCode"
-        android:layout_width="189dp"
-        android:layout_height="52dp"
+        android:layout_width="327dp"
+        android:layout_height="135dp"
+        android:fontFamily="@font/headland_one"
         android:gravity="center"
         android:text="@string/your_session_code_is"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="34sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,8 +24,9 @@
 
     <TextView
         android:id="@+id/textCode"
-        android:layout_width="176dp"
-        android:layout_height="46dp"
+        android:layout_width="324dp"
+        android:layout_height="98dp"
+        android:background="@drawable/transparent_bkgnd"
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="30sp"
@@ -36,18 +38,24 @@
         app:layout_constraintTop_toBottomOf="@+id/sessionCode"
         app:layout_constraintVertical_bias="0.076" />
 
-    <Button
+    <!--<Button-->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/endSessionBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="162dp"
+        android:layout_height="91dp"
         android:layout_marginStart="164dp"
         android:layout_marginTop="524dp"
         android:layout_marginEnd="153dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/gradient_button"
+        android:fontFamily="@font/julius_sans_one"
         android:text="@string/end_session"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.641"
+        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCode"
         app:layout_constraintVertical_bias="1.0" />

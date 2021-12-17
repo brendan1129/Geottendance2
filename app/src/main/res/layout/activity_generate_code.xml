@@ -17,13 +17,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generate_btn" />
 
-    <Button
+    <!--<Button-->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/generate_btn"
-        android:layout_width="154dp"
-        android:layout_height="60dp"
+        android:layout_width="162dp"
+        android:layout_height="91dp"
+        android:background="@drawable/gradient_button"
+        android:fontFamily="@font/julius_sans_one"
         android:text="@string/generate_btn"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:visibility="visible"
-        app:backgroundTint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -34,9 +39,10 @@
 
     <TextView
         android:id="@+id/pressGenerate"
-        android:layout_width="304dp"
-        android:layout_height="91dp"
+        android:layout_width="399dp"
+        android:layout_height="162dp"
         android:layout_marginTop="96dp"
+        android:fontFamily="@font/headland_one"
         android:gravity="center"
         android:text="@string/pressGenerate"
         android:textColor="@color/black"
@@ -49,9 +55,11 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/teacherNavView"
-        android:layout_width="491dp"
-        android:layout_height="58dp"
-        android:background="#fff"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="@drawable/gradient"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
