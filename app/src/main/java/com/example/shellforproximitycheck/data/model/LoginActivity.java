@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (dbDAO.getbySEmail(username.getText().toString()).equals(password.getText().toString())) {
                         int StudentID = getIntent().getIntExtra("Student", 0); // Retrieving StudentID from the putExtra() in RegistrationActivity
                         Intent intent1 = new Intent(LoginActivity.this, StudentCodeActivity.class);
-                        intent1.putExtra("Student", StudentID); // Passing that StudentID to the StudentCodeActivity
+                        //intent1.putExtra("Student", StudentID); // Passing that StudentID to the StudentCodeActivity
                         startActivity(intent1);
                         Toast.makeText(getApplicationContext(), "Greetings!", Toast.LENGTH_SHORT).show();
                     }

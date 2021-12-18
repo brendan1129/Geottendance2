@@ -3,6 +3,7 @@ package com.example.shellforproximitycheck.data.model;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
+import androidx.room.Ignore;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -12,8 +13,10 @@ import java.util.List;
 @Dao
 public interface DatabaseDAO {
     //Gets the entire list of students
+
     @Query("SELECT * FROM Student")
     LiveData<List<Student>> getAllStudents();
+
     //List<Student> getAllStudents();
 
     //Gets the entire list of teachers
@@ -29,6 +32,9 @@ public interface DatabaseDAO {
     @Query("SELECT * FROM Teacher WHERE Teacher_ID = :tID")
     LiveData<Teacher> getbyTID(int tID);
 
+    @Query("SELECT SName FROM STUDENT WHERE isAttending = 1")
+    String[] getStudentNames();
+
     @Query("SELECT Spassword FROM Student WHERE SUserName = :sEmail")
     String getbySEmail(String sEmail);
 
@@ -42,7 +48,7 @@ public interface DatabaseDAO {
     String getbyTEmail(String tEmail);
 
     @Query("UPDATE Student SET isAttending = :checkedIn WHERE Student_ID = :sID")
-    String updateIsAttending(int sID, boolean checkedIn);
+    void updateIsAttending(int sID, int checkedIn);
     //Insert into the student table
     @Insert
     void insertStudent(Student student);

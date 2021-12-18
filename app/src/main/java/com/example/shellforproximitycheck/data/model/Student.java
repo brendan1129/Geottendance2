@@ -3,6 +3,7 @@ package com.example.shellforproximitycheck.data.model;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -16,14 +17,14 @@ public class Student {
     @NonNull
     public String Spassword;
     @NonNull
-    public boolean isAttending;
+    public int isAttending;
 
-    public Student(int Student_ID, String SName, String SUserName, String Spassword) {
+    public Student(int Student_ID, String SName, String SUserName, String Spassword, int isAttending ) {
         this.Student_ID = Student_ID;
         this.SName = SName;
         this.SUserName = SUserName;
         this.Spassword = Spassword;
-        this.isAttending = false;
+        this.isAttending = isAttending;
     }
 
     public int getStudent_ID() {
@@ -41,4 +42,6 @@ public class Student {
     public String getSpassword() {
         return this.Spassword;
     }
+
+    public int getIsAttending() { return this.isAttending; }
 }

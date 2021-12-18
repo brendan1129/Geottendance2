@@ -46,10 +46,10 @@ public class RegistrationActivity extends AppCompatActivity {
                     sName = name.getText().toString();
                     sEmail = email.getText().toString();
                     sPass = password.getText().toString();
-                    s = new Student(0, sName, sEmail, sPass);
-                    //currentSID = s.Student_ID;
+                    s = new Student(0, sName, sEmail, sPass, 0 );
+                    currentSID = s.Student_ID;
                     dbDAO.insertStudent(s);
-                    i.putExtra("Student", s.Student_ID); // s.Student_ID passed with key "Student" from here to CheckInSuccessActivity
+                    //i.putExtra("Student", s.Student_ID); // s.Student_ID passed with key "Student" from here to CheckInSuccessActivity
                     startActivity(i);
                     break;
                 case "Teacher":

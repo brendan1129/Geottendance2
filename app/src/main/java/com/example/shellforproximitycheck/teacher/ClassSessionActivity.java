@@ -8,12 +8,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import com.example.shellforproximitycheck.R;
+import com.example.shellforproximitycheck.data.model.DatabaseDAO;
+import com.example.shellforproximitycheck.data.model.GeottendanceDatabase;
 import com.example.shellforproximitycheck.data.model.RegistrationActivity;
 import com.example.shellforproximitycheck.student.CheckInSuccessActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ClassSessionActivity extends AppCompatActivity {
 
@@ -24,13 +28,15 @@ public class ClassSessionActivity extends AppCompatActivity {
 
         final TextView codeText = findViewById(R.id.textCode);
         final Button endSessionButton = findViewById(R.id.endSessionBtn);
-        final ListView studentList = (ListView) findViewById(R.id.ListView);
+        ListView studentList = (ListView) findViewById(R.id.ListView);
 
-        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, CheckInSuccessActivity.currentStudents);
+
+        List<String> names = CheckInSuccessActivity.currentStudents;
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        GeottendanceDatabase db = Room.databaseBuilder(getApplicationContext(), GeottendanceDatabase.class, "Geottendance-Database").allowMainThreadQueries().build();
+        DatabaseDAO dbDAO = db.getDatabaseDAO();
+        adapter.addAll(dbDAO.getStudentNames());
         studentList.setAdapter(adapter);
-        for ( int i = 0; i < CheckInSuccessActivity.currentStudents.length; i++ ) {
-            adapter.add(CheckInSuccessActivity.currentStudents[i]);
-        }
         adapter.notifyDataSetChanged(); // Should Listen for changes to list
 
         codeText.setText(CodeGenerator.code);
