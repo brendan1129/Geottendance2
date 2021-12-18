@@ -21,13 +21,14 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/teacherNavView"
-        android:layout_width="491dp"
-        android:layout_height="58dp"
-        android:background="#fff"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="@drawable/gradient"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/teacher_nav_menu" />
 
     <!--<com.google.android.gms.maps.MapView
